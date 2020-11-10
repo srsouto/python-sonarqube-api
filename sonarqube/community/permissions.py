@@ -245,7 +245,7 @@ class SonarQubePermissions(RestClient):
         """
 
     @POST(API_PERMISSIONS_GET_TEMPLATE_USERS)
-    def get_template_users(self, templateId):
+    def get_template_users(self, templateId, ps="100"):
         """
         List of users and their permissions for the specified template.
 
@@ -254,7 +254,7 @@ class SonarQubePermissions(RestClient):
         """
 
     @POST(API_PERMISSIONS_GET_TEMPLATE_GROUPS)
-    def get_template_groups(self, templateId):
+    def get_template_groups(self, templateId, ps="100"):
         """
         List of groups and their permissions for the specified template.
 
