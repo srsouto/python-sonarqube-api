@@ -23,7 +23,7 @@ from sonarqube.utils.config import (
     API_PERMISSIONS_GET_TEMPLATE_USERS,
     API_PERMISSIONS_GET_TEMPLATE_GROUPS,
 )
-from sonarqube.utils.common import GET, POST
+from sonarqube.utils.common import GET, POST, PAGE_GET
 
 
 class SonarQubePermissions(RestClient):
@@ -244,8 +244,8 @@ class SonarQubePermissions(RestClient):
         :return: defaultTemplates, permissionTemplates, permissions
         """
 
-    @POST(API_PERMISSIONS_GET_TEMPLATE_USERS)
-    def get_template_users(self, templateId, ps="100"):
+    @PAGE_GET(API_PERMISSIONS_GET_TEMPLATE_USERS, item="users")
+    def get_template_users(self, templateId):
         """
         List of users and their permissions for the specified template.
 
@@ -253,8 +253,8 @@ class SonarQubePermissions(RestClient):
         return: users
         """
 
-    @POST(API_PERMISSIONS_GET_TEMPLATE_GROUPS)
-    def get_template_groups(self, templateId, ps="100"):
+    @PAGE_GET(API_PERMISSIONS_GET_TEMPLATE_GROUPS, item="groups")
+    def get_template_groups(self, templateId):
         """
         List of groups and their permissions for the specified template.
 
